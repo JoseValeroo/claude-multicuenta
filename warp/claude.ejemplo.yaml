@@ -1,0 +1,40 @@
+# Launch Configuration de Warp: reabre de golpe tus pestañas de Claude Code,
+# cada una en su carpeta y retomando su conversación.
+#
+# 1. Copia este fichero a  %APPDATA%\warp\Warp\data\launch_configurations\claude.yaml
+#    (en macOS: ~/.warp/launch_configurations/, en Linux: ~/.local/share/warp-terminal/launch_configurations/)
+# 2. Cambia títulos, carpetas e ids de conversación por los tuyos.
+# 3. En Warp: Ctrl+Mayús+P -> escribe "launch" -> "Claude: mis conversaciones".
+#
+# El id de cada conversación es el nombre del .jsonl en ~/.claude/projects/<carpeta>/
+# (el más reciente suele ser el bueno). Si empiezas una conversación nueva en una
+# pestaña, actualiza aquí su id.
+---
+name: "Claude: mis conversaciones"
+windows:
+  - tabs:
+      - title: PROYECTO A
+        layout:
+          cwd: 'D:\proyecto-a'
+          commands:
+            - exec: claude --resume 00000000-0000-0000-0000-000000000001
+        color: green
+      - title: PROYECTO B
+        layout:
+          cwd: 'D:\proyecto-b'
+          commands:
+            - exec: claude --resume 00000000-0000-0000-0000-000000000002
+        color: blue
+      - title: GENERAL
+        layout:
+          cwd: 'D:\'
+          commands:
+            - exec: claude --resume 00000000-0000-0000-0000-000000000003
+        color: magenta
+      # Una pestaña desactivada: quita las almohadillas para usarla.
+      # - title: PROYECTO C
+      #   layout:
+      #     cwd: 'D:\proyecto-c'
+      #     commands:
+      #       - exec: claude --resume 00000000-0000-0000-0000-000000000004
+      #   color: cyan
